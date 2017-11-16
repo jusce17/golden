@@ -56,8 +56,7 @@ include 'connection.php';
 
     <div class="row">
      <div class="col-md-12">
-     <img src="images/dinner_cover.jpg" >
-
+     <img src="images/dinner_cover.jpg" class="img-responsive" >
         </div>
     </div>
     <div class="row">
@@ -110,7 +109,9 @@ $show_tables = mysqli_query($conn, $all_tables);
 if(mysqli_num_rows($show_tables)>0){
 	while($row = mysqli_fetch_assoc($show_tables)){
 
-      echo ' <form action ="check_table.php" method ="post"><input type="submit" name="table" class= "tables ' . $row["state"]. '" value=" '. $row["table_id"].'"> </input> </form> ';
+      echo ' <form action ="check_table.php" method ="post">
+      <input type="submit" name="table" class= "tables ' . $row["state"]. '" value=" '. $row["table_id"].'"> </input>
+      </form> ';
 
 
 		}
