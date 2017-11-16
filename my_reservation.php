@@ -1,6 +1,7 @@
 <?php
 // Start the session
 session_start();
+include 'connection.php';
 
 
 ?>
@@ -17,70 +18,67 @@ session_start();
  <link rel="stylesheet" href="css/bootstrap.min.css">
  <link rel="stylesheet" href="css/style.css">
  <link rel="stylesheet" href="style.css">
- 
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
- 
+
  </head>
   <body>
-  
- 
+
+
 
 <div class="container">
     <div class="row">
-      
+
     <div class="col-md-12 text-right text-uppercase">
-       
-        <h3 class="small">WELCOME BACK, <?php echo $_SESSION['user_name']; ?> </h3>   
-      
-      
-         
-    
+
+        <h3 class="small">WELCOME BACK, <?php echo $_SESSION['user_name']; ?> </h3>
+
+
+
+
         <div class="col-md-12 text-center text-uppercase">
                    <br>
 <a href="admin.php"><h5  >Admin tools  </a> |
-        
+
         <a href="main.php"> Main Page</a> |
-         <a href="logout.php"> log out</h5>  </a>  
+         <a href="logout.php"> log out</h5>  </a>
          <br>
-            
+
         </div>
-     
+
     </div>
      <div class="row">
          <div class="col-md-12">
-             
+
               <hr id="title-line">
         </div>
-          
-      </div> 
-      
+
+      </div>
+
     <div class="row">
-    
+
      <div class="col-md-12">
      <img src="images/dinner_cover.jpg" >
-     
+
         </div>
     </div>
-   
-    
+
+
     <div class="row text-center">
-    
-     
-    
-       
-    
-    
-      
-    
+
+
+
+
+
+
+
+
       <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "apmsetup";
-$dbname = "assigment3_eden";
+
 
 // create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -96,53 +94,53 @@ if(mysqli_num_rows($show_tables)>0){
         echo '  <h2>Reservation page</h2>
       <h3> here are the tables you reserved</h3>
       <h3>Click on the table you want to  cancel the reservation</h3>';
-	
+
       echo ' <form action ="cancel_table.php" method ="post"><input type="submit" name="table" class= "tables ' . $row["state"]. '" value=" '. $row["table_id"].'"> </input> </form> ';
-        
-       
+
+
 		}
 
 }else{
-        
+
         echo ' <br><br><h2> You have no reservation </h2> ';
     }
 
-    
-    
+
+
 ?>
-      
-      
-      
-     
-      
-      
- 
+
+
+
+
+
+
+
 </div>
       </div>
          <br><br><br><br><br>  <br><br><br><br><br>
-         
+
          <div class="container">
     <div class="row">
-      
+
       <div class="col-md-12 text-center text-uppercase">
-       
-           
-         
-          
+
+
+
+
          <br>
           <a href="#">  <h3 class="small">Copyright (c) 2016 - Eden Juscelino </a>
-      
+
          <br>
       </div>
-     
-          </div></div>
- 
- 
- 
 
-  
-  
- 
+          </div></div>
+
+
+
+
+
+
+
 </body>
 
 </html>
