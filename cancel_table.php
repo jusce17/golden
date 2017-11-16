@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'connection.php';
 
 ?>
 
@@ -18,95 +19,89 @@ session_start();
  <link rel="stylesheet" href="css/bootstrap.min.css">
  <link rel="stylesheet" href="css/style.css">
  <link rel="stylesheet" href="style.css">
- 
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
- 
+
  </head>
   <body>
-  
- 
+
+
 
 <div class="container">
-   
+
      <div class="row">
          <div class="col-md-12">
               <hr id="title-line">
         </div>
-          
-      </div> 
-      
+
+      </div>
+
     <div class="row">
      <div class="col-md-12">
      <img src="images/dinner_cover.jpg" >
-     
+
         </div>
     </div>
     <div class="row">
          <div class="col-md-12">
-         
-         <?php
-$servername = "localhost";
-$username = "root";
-$password = "apmsetup";
-$dbname = "assigment3_eden";
 
-// create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+         <?php
+
 if(!$conn){
 	die("connection failed: " .mysqli_connect_error());
-    
-    
+
+
 }
 
 if(isset($_POST['table'])){
-   
-   $null = 20; 
+
+   $null = 20;
     $table_id= $_POST['table'];
-    
-    
-    
-   
-	
+
+
+
+
+
 	  $query = "UPDATE tables SET  state= 'free', user_id = '".$null."' WHERE table_id = '".$table_id ."'";
-    
+
     if( mysqli_query($conn, $query)){
-           
+
             echo "you have successfully canceled your Reservation for the tbale " . $table_id ;
         echo "<h2 class='text-muted'>you have successfully canceled your Reservation for the tbale #" .$table_id. " </h2>";
-        
+
        echo "<img src='images/loader.gif' height='50' width='50' >";
     echo "<p>you are being redirected to the main page</p>";
-           
-          
-        header("Refresh: 3; url=main.php"); 
-           
+
+
+        header("Refresh: 3; url=main.php");
+
        } else {
     echo "Error updating record: " . mysqli_error($conn);
 }
-    
+
 }
 
-    
+
 
 
 ?>
 
-        
+
       </div>
     </div>
-    
-    <div class="row text-center">
-    
 
-      
- 
+    <div class="row text-center">
+
+
+
+
 </div>
- 
- 
-  
+
+
+
 </body>
 
 </html>
